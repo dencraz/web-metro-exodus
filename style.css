@@ -1,0 +1,151 @@
+/* Базовые стили */
+.page {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #E0E0E0;
+    line-height: 1.6;
+}
+
+/* Шапка */
+.header {
+    background-color: #1E1E1E;
+    padding: 15px 20px;
+    border-bottom: 1px solid #5C0000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    color: #FF6B00;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+/* Навигация */
+.nav__link {
+    color: #B0B0B0;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 1em;
+}
+
+.nav__link:hover {
+    color: #FF8C00;
+}
+
+/* Основное содержимое */
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content {
+    background-color: #1A1A1A;
+    border: 1px solid #333;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.content__title {
+    color: #FF8C00;
+    border-bottom: 1px solid #5C0000;
+    padding-bottom: 5px;
+}
+
+/* Карточка */
+.card {
+    width: 350px;
+    background-color: #252525;
+    padding: 15px;
+    border: 3px solid #5C0000;
+    margin-bottom: 20px;
+    shape-outside: rectangle();
+}
+
+.card_float_right {
+    float: right;
+    margin-left: 40px;
+}
+
+.card__image {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.card__text {
+    margin: 5px 0;
+}
+
+/* Описание игры */
+.description__subtitle {
+    color: #FF8C00;
+    margin-top: 20px;
+}
+
+.description__subtitle_level_3 {
+    font-size: 1.1em;
+    color: #E0E0E0;
+    margin-top: 15px;
+}
+
+.description__paragraph {
+    text-align: justify;
+    margin: 10px 0;
+}
+
+.description__divider {
+    border: 0;
+    height: 1px;
+    background-color: #5C0000;
+    margin: 15px 0;
+}
+
+.description__list {
+    padding-left: 20px;
+}
+
+.description__list-item {
+    margin-bottom: 5px;
+}
+
+/* Подвал */
+.footer {
+    background-color: #0A0A0A;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #777;
+    border-top: 1px solid #333;
+    clear: both;
+}
+
+.footer__copyright {
+    margin: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .card_float_right {
+        float: none;
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav {
+        margin-top: 15px;
+    }
+    
+    .nav__link {
+        display: block;
+        margin: 5px 0;
+    }
+}

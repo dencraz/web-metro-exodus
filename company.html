@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4A Engine </title>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_api_ключ&lang=ru_RU" type="text/javascript"></script>
+    <link rel="stylesheet" href="company.css">
+</head>
+<body class="page">
+    <header class="header">
+        <div class="header__logo">METRO</div>
+        <nav class="nav">
+            <a href="#" class="nav__link">Главная</a>
+            <a href="charcter.html" class="nav__link">Персонажи</a>
+            <a href="company.html" class="nav__link nav__link_active">4A-Games</a>
+            <a href="feedback.html" class="nav__link">Связь с нами</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="company-section">
+            <h1 class="company-section__title">4A Engine</h1>
+            <p class="company-section__text">4A Engine - это передовой игровой движок, разработанный студией 4A Games специально для создания атмосферных, визуально впечатляющих игр с акцентом на реалистичное освещение и физику.</p>
+            <p class="company-section__text">Движок был создан в 2005 году бывшими сотрудниками GSC Game World, которые позже основали студию 4A Games в Киеве, Украина. Сейчас студия имеет офисы на Мальте и в Украине.</p>
+        </section>
+
+        <section class="company-section">
+            <h2 class="company-section__subtitle">Расположение компании</h2>
+            <div class="office-container">
+                <div class="office">
+                    <h3 class="office__title">Головной офис (Мальта)</h3>
+                    <p class="office__info"><strong class="office__label">Адрес:</strong> Level 3, Quantum House, 75 Abate Rigord Street, Ta' Xbiex XBX 1120, Malta</p>
+                    <p class="office__info"><strong class="office__label">Телефон:</strong> +356 2133 4455</p>
+                    <p class="office__info"><strong class="office__label">Email:</strong> malta@4a-games.com.mt</p>
+                </div>
+                <div class="office">
+                    <h3 class="office__title">Разработческий офис (Киев)</h3>
+                    <p class="office__info"><strong class="office__label">Адрес:</strong> ул. Антоновича, 172, Киев, 03150, Украина</p>
+                    <p class="office__info"><strong class="office__label">Телефон:</strong> +380 44 123 4567</p>
+                    <p class="office__info"><strong class="office__label">Email:</strong> kyiv@4a-games.com.ua</p>
+                </div>
+            </div>
+            
+            <div class="map-tabs">
+                <button class="map-tabs__button map-tabs__button_active" onclick="showMap('malta')">Офис на Мальте</button>
+                <button class="map-tabs__button" onclick="showMap('kyiv')">Офис в Киеве</button>
+            </div>
+            
+            <div class="map" id="map"></div>
+        </section>
+
+        <section class="company-section">
+            <h2 class="company-section__subtitle">Ключевые особенности</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3 class="feature-card__title">Реалистичное освещение</h3>
+                    <p class="feature-card__description">Динамическое глобальное освещение с поддержкой трассировки лучей, реалистичные тени и отражения.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">Физика разрушений</h3>
+                    <p class="feature-card__description">Продвинутая система физики, позволяющая реалистичное разрушение окружения и взаимодействие с объектами.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">Оптимизация</h3>
+                    <p class="feature-card__description">Высокая производительность даже на сложных сценах благодаря эффективному использованию ресурсов.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">Мультиплатформенность</h3>
+                    <p class="feature-card__description">Поддержка PC, PlayStation и Xbox с возможностью масштабирования графики под разные аппаратные конфигурации.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="company-section">
+            <h2 class="company-section__subtitle">Игры на 4A Engine</h2>
+            <ul class="games-list">
+                <li class="games-list__item">Metro 2033 (2010)</li>
+                <li class="games-list__item">Metro: Last Light (2013)</li>
+                <li class="games-list__item">Metro Exodus (2019)</li>
+                <li class="games-list__item">Metro Exodus: Enhanced Edition (2021) - с полной поддержкой трассировки лучей</li>
+            </ul>
+        </section>
+
+        <section class="company-section">
+            <h2 class="company-section__subtitle">Технологии будущего</h2>
+            <p class="company-section__text">4A Games продолжает развивать движок, работая над улучшением:</p>
+            <ul class="tech-list">
+                <li class="tech-list__item">ИИ персонажей и врагов</li>
+                <li class="tech-list__item">Системы анимации</li>
+                <li class="tech-list__item">Поддержки новых графических API (DirectX 12 Ultimate, Vulkan)</li>
+                <li class="tech-list__item">Инструментов для разработчиков</li>
+            </ul>
+            <a href="https://www.4a-games.com.mt/" class="button">Узнать больше</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__copyright">© 2025 4A Games. Все права защищены.</p>
+    </footer>
+
+    <script type="text/javascript">
+        let map;
+        let maltaPlacemark;
+        let kyivPlacemark;
+        
+        const officeLocations = {
+            malta: {
+                center: [35.8997, 14.5172],
+                zoom: 16,
+                coords: [35.8997, 14.5172],
+                address: "Level 3, Quantum House, 75 Abate Rigord Street, Ta' Xbiex XBX 1120, Malta"
+            },
+            kyiv: {
+                center: [50.487615, 30.501519],
+                zoom: 16,
+                coords: [50.487615, 30.501519],
+                address: "ул. Антоновича, 172, Киев, 03150, Украина"
+            }
+        };
+        
+        ymaps.ready(init);
+        
+        function init() {
+            map = new ymaps.Map("map", {
+                center: officeLocations.malta.center,
+                zoom: officeLocations.malta.zoom,
+                controls: ['zoomControl']
+            });
+            
+            maltaPlacemark = createPlacemark(
+                officeLocations.malta.coords,
+                officeLocations.malta.address,
+                "Офис на Мальте"
+            );
+            
+            kyivPlacemark = createPlacemark(
+                officeLocations.kyiv.coords,
+                officeLocations.kyiv.address,
+                "Офис в Киеве"
+            );
+            
+            map.geoObjects.add(maltaPlacemark);
+        }
+        
+        function createPlacemark(coords, address, title) {
+            return new ymaps.Placemark(coords, {
+                balloonContent: `<strong>${title}</strong><br>${address}`
+            }, {
+                preset: 'islands#redDotIcon'
+            });
+        }
+        
+        function showMap(office) {
+            document.querySelectorAll('.map-tabs__button').forEach(tab => {
+                tab.classList.remove('map-tabs__button_active');
+            });
+            event.target.classList.add('map-tabs__button_active');
+            
+            map.geoObjects.removeAll();
+            
+            map.setCenter(officeLocations[office].center, officeLocations[office].zoom);
+            
+            if (office === 'malta') {
+                map.geoObjects.add(maltaPlacemark);
+            } else {
+                map.geoObjects.add(kyivPlacemark);
+            }
+        }
+    </script>
+</body>
+</html>
